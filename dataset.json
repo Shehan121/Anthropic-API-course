@@ -1,11 +1,58 @@
 [
   {
-    "task": "Write a Python function that takes an S3 bucket ARN and extracts just the bucket name from it. For example, 'arn:aws:s3:::my-bucket-name' should return 'my-bucket-name'."
+    "scenario": "Standard athlete with muscle gain goal and no restrictions",
+    "prompt_inputs": {
+      "height": 180,
+      "weight": 75,
+      "goal": "muscle gain",
+      "restrictions": "none"
+    },
+    "solution_criteria": [
+      "Contains 3 main meals (breakfast, lunch, dinner)",
+      "Includes protein-rich foods in each meal",
+      "Provides caloric surplus appropriate for muscle gain",
+      "Suggests approximate macronutrient breakdown or total calories",
+      "Meal plan fits within a single day timeframe",
+      "Portions or quantities are specified for meals"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete"
   },
   {
-    "task": "Create a JSON object for an AWS IAM policy that allows read-only access to a specific S3 bucket named 'company-logs', including the ability to list objects and get object contents."
+    "scenario": "Lightweight athlete with weight loss goal and multiple dietary restrictions",
+    "prompt_inputs": {
+      "height": 165,
+      "weight": 58,
+      "goal": "weight loss",
+      "restrictions": "vegan, gluten-free, nut allergy"
+    },
+    "solution_criteria": [
+      "All meals are plant-based with no animal products",
+      "No gluten-containing grains (wheat, barley, rye)",
+      "No nuts or nut-based products included",
+      "Provides adequate protein from vegan sources (legumes, tofu, seeds, etc.)",
+      "Caloric deficit appropriate for weight loss while maintaining athletic performance",
+      "Includes sufficient micronutrients despite restrictions",
+      "Meal plan is compact and realistic for one day"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete"
   },
   {
-    "task": "Write a regex pattern that validates AWS EC2 instance IDs, which start with 'i-' followed by either 8 or 17 hexadecimal characters (e.g., 'i-1234abcd' or 'i-0123456789abcdef0')."
+    "scenario": "Very tall, heavy athlete with maintenance goal and minimal information edge case",
+    "prompt_inputs": {
+      "height": 205,
+      "weight": 115,
+      "goal": "maintain current weight and performance",
+      "restrictions": ""
+    },
+    "solution_criteria": [
+      "Accounts for high caloric needs of large athlete",
+      "Provides maintenance-level calories (not surplus or deficit)",
+      "Includes adequate hydration recommendations",
+      "Balances macronutrients appropriately for performance",
+      "Handles empty string restriction gracefully (treats as no restrictions)",
+      "Meal portions are scaled appropriately for athlete size",
+      "Plan is still concise despite high volume needs"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete"
   }
 ]
