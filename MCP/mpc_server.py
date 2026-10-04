@@ -39,14 +39,6 @@ def edit_document(
         raise ValueError(f'doc with id{doc_id} not found')
     docs[doc_id] = docs[doc_id].replace(old_str,new_str)    
 
-async def list_tools(self) -> list[types.Tool]:
-    result = await self.session().list_tools()
-    return result.tools
-
-async def call_tool(
-    self, tool_name: str, tool_input: dict
-) -> types.CallToolResult | None:
-    return await self.session().call_tool(tool_name, tool_input)
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")
