@@ -67,7 +67,16 @@ async def main():
                 user_input = await asyncio.to_thread(input, "You: ")
                 if user_input.strip().lower() == "quit":
                     break
-                messages.append({"role": "user", "content": user_input})
+                if user_input.startswith("/"):
+                    # e.g. "/format plan.md" -> prompt "format" with doc_id "plan.md"
+                    parts = user_input[1:].split()
+                    name = parts[0]
+                    args = {"doc_id": parts[1]} if len(parts) > 1 else {}
+                    prompt = await client.session().get_prompt(name, args)
+                    for m in prompt.messages:
+                        messages.append({"role": m.role, "content": m.content.text})
+                else:
+                    messages.append({"role": "user", "content": user_input})
                 reply = await chat_turn(client, messages, tools)
                 print(f"\nClaude: {reply}\n")
 
