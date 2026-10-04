@@ -35,5 +35,16 @@ async def main():
             result = await client.call_tool("read_doc_contents", {"doc_id": "report.pdf"})
             print("\nreport.pdf says:", result.content[0].text)
 
+# implementing prompts in the client
+# list_prompt
+async def list_prompts(self) -> list[types.Prompt]:
+    result = await self.session().list_prompts()
+    return result.prompts
 
-asyncio.run(main())
+# individual prompts
+async def get_prompt(self, prompt_name, args: dict[str, str]):
+    result = await self.session().get_prompt(prompt_name, args)
+    return result.messages
+
+if __name__ == "__main__":
+    asyncio.run(main())
