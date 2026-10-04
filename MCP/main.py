@@ -51,7 +51,7 @@ async def main():
             await session.initialize()
             client = MCPClient(session)
 
-            # convert MCP tools into the format the Anthropic API expects
+            # consvert MCP tools into the format the Anthropic API expects
             tools = [
                 {
                     "name": t.name,
